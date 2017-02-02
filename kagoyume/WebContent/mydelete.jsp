@@ -12,28 +12,36 @@
 <head>
 <meta charset="UTF-8">
 <title>かごいっぱいのゆめ</title>
+<%--Bootstrap CDN css読み込み --%>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
 	<h1>以下のユーザーを本当に削除しますか</h1>
-	<h3>削除したユーザーは元に戻せません</h3>
-	ユーザー名：<%=ud.getName() %><br>
-	パスワード:<%=ud.getPassward() %><br>
-	メールアドレス：<%=ud.getMail() %><br>
-	住所:<%=ud.getAddress() %><br>
-	合計購入金額:<%=ud.getTotal() %><br>
-	最終更新日:<%=sdf.format(ud.getNewDate()) %>
+	<p class="lead">削除したユーザーは元に戻せません</p>
+	<ul class="list-unstyled">
+		<li>ユーザー名：<%=ud.getName() %></li>
+		<li>パスワード:<%=ud.getPassward() %></li>
+		<li>メールアドレス：<%=ud.getMail() %></li>
+		<li>住所:<%=ud.getAddress() %></li>
+		<li>合計購入金額:<%=ud.getTotal() %></li>
+		<li>最終更新日:<%=sdf.format(ud.getNewDate()) %></li>
+	</ul>
 
-	<br><br>
-	削除してよろしいですか？<br>
+	<br>
+	<p class="lead">削除してよろしいですか？</p>
 	<form action="/kagoyume/MyDeleteResult" method="Post">
 		<input type="hidden" name="acDelete" value=<%= session.getAttribute("acDelete") %>>
-		<input type="submit" name="submit" value="削除する">
+		<input type="submit" name="submit" value="削除する" class="btn btn-primary btn-lg">
 	</form>
 
 	<br><br>
 	<%=KagoyumeHelper.getInstanse().mydata() %>
-	<br><br>
 	<%=KagoyumeHelper.getInstanse().home() %>
+
+	<%--JQuery読み込み --%>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<%--Bootstrap CDN javascript読み込み --%>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>

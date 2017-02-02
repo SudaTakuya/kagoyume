@@ -45,6 +45,10 @@ public class Search extends HttpServlet {
 			ResultSet searchResult = YahooSearch.getInstanse().execute(searchWard);
 
 			String hitCount = searchResult.getTotalResultsAvailable();
+			//検索結果が0件の場合はエラー画面に遷移
+			if(Integer.parseInt(hitCount) == 0){
+				throw new Exception("検索ワードに一致する商品はありませんでした");
+			}
 
 			int count = 0;
 			for (Hit hit: searchResult.getResult().getHit()) {
@@ -53,7 +57,6 @@ public class Search extends HttpServlet {
 				resultData.get(count).setCode(hit.getCode());
 				resultData.get(count).setPrice(Integer.valueOf(hit.getPrice().getValue()));
 				resultData.get(count).setImg_small(hit.getImage().getSmall());
-
 				count++;
 			}
 

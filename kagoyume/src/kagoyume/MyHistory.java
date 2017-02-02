@@ -45,7 +45,6 @@ public class MyHistory extends HttpServlet {
 				historyItem.get(count).setPrice(Integer.valueOf(hit.getPrice().getValue()));
 				count++;
 			}
-			System.out.println("OK");
 			request.setAttribute("historyItem", historyItem);
 			request.getRequestDispatcher("/myhistory.jsp").forward(request, response);
 		}catch(Exception e){

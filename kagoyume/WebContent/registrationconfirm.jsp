@@ -10,25 +10,34 @@
 <head>
 <meta charset="UTF-8">
 <title>かごいっぱいのゆめ</title>
+<%--Bootstrap CDN css読み込み --%>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
 	<%if(check.equals("")){ %>
 		<h1>以下の内容で登録します</h1>
-		ユーザー名：<%=ud.getName() %><br>
-		パスワード:<%=ud.getPassward() %><br>
-		メールアドレス:<%=ud.getMail() %><br>
-		住所:<%=ud.getAddress() %><br><br>
-
-		よろしければ登録するを選択してください<br>
+		<ul class="list-unstyled">
+			<li>ユーザー名：<%=ud.getName() %></li>
+			<li>パスワード:<%=ud.getPassward() %></li>
+			<li>メールアドレス：<%=ud.getMail() %></li>
+			<li>住所:<%=ud.getAddress() %></li>
+		</ul>
+		<br>
+		<p class="lead">よろしければ登録するを選択してください</p>
 		<form action="/kagoyume/RegistrationComplete" method="Post">
 			<input type="hidden" name="acRegistration" value=<%=session.getAttribute("acRegistration") %>>
-			<input type="submit" name="submit" value="登録する">
+			<input type="submit" name="submit" value="登録する" class="btn btn-primary btn-lg">
 		</form>
 	<% }else{ %>
 		<h1>入力項目が不足しています</h1>
-		<%=check %>が不足しています
+		<p class="lead"><%=check %>が不足しています</p>
 	<% } %>
 	<br><br>
-	<a href="/kagoyume/registration.jsp">入力画面に戻る</a>
+	<p class="lead"><a href="/kagoyume/registration.jsp">入力画面に戻る</a></p>
+
+	<%--JQuery読み込み --%>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<%--Bootstrap CDN javascript読み込み --%>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>

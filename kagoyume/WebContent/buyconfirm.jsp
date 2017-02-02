@@ -17,16 +17,20 @@
 </head>
 <body>
 	<h1>購入確認</h1>
-	<ul class="list-unstyled">
-	<% for(ItemData id : cart) { %>
-		<li><%=id.getName() %>  :  ￥<%=id.getPrice() %></li>
-		<% total += id.getPrice(); %>
-	<% } %>
-	</ul><br>
+	<div class="panel panel-default">
+		<table class="table table-bordered">
+		<% for(ItemData id : cart) { %>
+			<tr>
+				<td><%=id.getName() %></td>
+				<td>￥<%=id.getPrice() %></td>
+			</tr>
+			<% total += id.getPrice(); %>
+		<% } %>
+		</table>
+	<div class="panel-heading"><p class="lead">合計金額 : ￥<%=total %></p></div>
+	</div>
 
-	<p>合計金額 : ￥<%=total %><p><br>
-
-	<p>発送方法を選択してください</p>
+	<p class="lead">発送方法を選択してください</p>
 	<form action="/kagoyume/BuyComplete" method="POST">
 		<div class="radio">
 		<% for(int i = 0;i < 3;i++) { %>

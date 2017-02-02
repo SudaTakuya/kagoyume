@@ -31,6 +31,7 @@
 
 
 	<br>
+	<%=KagoyumeHelper.getInstanse().cart() %>
 	<p class="lead"><a href="/kagoyume/search.jsp">検索結果に戻る</a></p>
 	<%=KagoyumeHelper.getInstanse().home() %>
 

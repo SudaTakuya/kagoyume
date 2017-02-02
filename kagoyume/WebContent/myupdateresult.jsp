@@ -16,10 +16,12 @@
 <body>
 	<h1>ユーザー登録情報の更新が完了しました</h1>
 	<h3>以下の内容で更新しました</h3>
-	ユーザー名：<%=ud.getName() %><br>
-	パスワード:<%=ud.getPassward() %><br>
-	メールアドレス：<%=ud.getMail() %><br>
-	住所:<%=ud.getAddress() %>
+	<ul class="list-unstyled">
+		<li>ユーザー名：<%=ud.getName() %></li>
+		<li>パスワード:<%=ud.getPassward() %></li>
+		<li>メールアドレス：<%=ud.getMail() %></li>
+		<li>住所:<%=ud.getAddress() %></li>
+	</ul>
 
 	<br><br>
 	<%=KagoyumeHelper.getInstanse().mydata() %>

@@ -15,7 +15,7 @@ UserData ud = (UserData)session.getAttribute("loginUser");
 </head>
 <body>
 	<h1>ユーザー登録データ更新</h1>
-	<form action="/kagoyume/MyUpdateResult" method="post">
+	<form action="/kagoyume/MyUpdateResult" method="Post">
 		<div class="form-group">
 			<label>ユーザー名</label>
 			<input class="form-control" type="text" name="name" value=<%=ud.getName() %>>

@@ -38,15 +38,15 @@
 
 	<h1>お買い物カート</h1>
 	<%if(cart.isEmpty()){%>
-		カートに商品はありません
+		<p class="lead">カートに商品はありません</p>
 	<% }else{ %>
 		<div class="panel panel-default">
 			<table class="table">
-				<tr>
+				<tr bgcolor="silver">
 					<th>商品画像</th>
 					<th>商品名</th>
 					<th>価格</th>
-					<th>商品の削除</th>
+					<th>削除</th>
 				</tr>
 				<% for(ItemData id : cart){ %>
 					<tr>
